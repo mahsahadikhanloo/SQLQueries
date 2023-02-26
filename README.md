@@ -40,7 +40,8 @@ order by 1,2
 Looking at countries with Highest Infection Rate compared to Population:
 
 ```sql
-select Location, Population, MAX(total_cases) as HighestInfection_Count, MAX((total_cases / population))*100 as InfectedPercantage
+select Location, Population, MAX(total_cases) as HighestInfection_Count, MAX((total_cases / population))*100 
+as InfectedPercantage
 from CovidDatabase..CovidDeaths 
 ---where location like '%states%'
 Group by Location, Population
@@ -83,7 +84,8 @@ order by TotalDeath_Count desc
 Showing the Global Numbers, the Total Cases, Total Deaths and the Death Percentage group by Date:
 
 ```sql
-select date, SUM(new_cases) as total_cases, SUM(cast(new_deaths as int)) as total_deaths, SUM(cast(new_deaths as int))/SUM(new_cases)*100
+select date, SUM(new_cases) as total_cases, SUM(cast(new_deaths as int)) as total_deaths,
+SUM(cast(new_deaths as int))/SUM(new_cases)*100
 as DeathPercantage
 from CovidDatabase..CovidDeaths 
 where continent is not null
@@ -94,7 +96,8 @@ order by 1,2
 Total Cases across the World (same as above query without Group By):
 
 ```sql
-select SUM(new_cases) as total_cases, SUM(cast(new_deaths as int)) as total_deaths, SUM(cast(new_deaths as int))/SUM(new_cases)*100
+select SUM(new_cases) as total_cases, SUM(cast(new_deaths as int)) as total_deaths,
+SUM(cast(new_deaths as int))/SUM(new_cases)*100
 as DeathPercantage
 from CovidDatabase..CovidDeaths 
 where continent is not null
@@ -124,7 +127,8 @@ With PopvsVac (Continent, Location, Date, Population, New_Vaccinations, RollingP
 as
 (
 select dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations, 
-SUM(CONVERT(int,vac.new_vaccinations)) over (partition by dea.location order by dea.location, dea.date) as RollingPeople_Vaccinated 
+SUM(CONVERT(int,vac.new_vaccinations)) over (partition by dea.location order by dea.location, dea.date)
+as RollingPeople_Vaccinated 
 from CovidDatabase..CovidDeaths dea
 inner Join CovidDatabase..CovidVaccination vac
 	on dea.location = vac.location
@@ -152,7 +156,8 @@ RollingPeople_Vaccinated numeric
 )
 Insert into #PercentPopulationVaccinated
 select dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations, 
-SUM(CONVERT(int,vac.new_vaccinations)) over (partition by dea.location order by dea.location, dea.date) as RollingPeople_Vaccinated 
+SUM(CONVERT(int,vac.new_vaccinations)) over (partition by dea.location order by dea.location, dea.date)
+as RollingPeople_Vaccinated 
 from CovidDatabase..CovidDeaths dea
 inner Join CovidDatabase..CovidVaccination vac
 	on dea.location = vac.location
@@ -171,7 +176,8 @@ Creating View to store data for later visualizations:
 ```sql
 Create View PercentPopulationVaccinated as
 select dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations, 
-SUM(CONVERT(int,vac.new_vaccinations)) over (partition by dea.location order by dea.location, dea.date) as RollingPeople_Vaccinated 
+SUM(CONVERT(int,vac.new_vaccinations)) over (partition by dea.location order by dea.location, dea.date)
+as RollingPeople_Vaccinated 
 from CovidDatabase..CovidDeaths dea
 inner Join CovidDatabase..CovidVaccination vac
 	on dea.location = vac.location
