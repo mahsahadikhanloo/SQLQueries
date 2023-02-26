@@ -40,7 +40,7 @@ order by 1,2
 Looking at countries with Highest Infection Rate compared to Population:
 
 ```sql
-select Location, Population, MAX(total_cases) as HighestInfection_Count, MAX((total_cases / population))*100 
+select Location, Population, MAX(total_cases) as HighestInfection_Count, MAX((total_cases / population))*100
 as InfectedPercantage
 from CovidDatabase..CovidDeaths 
 ---where location like '%states%'
