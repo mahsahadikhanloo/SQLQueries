@@ -213,7 +213,9 @@ select * from PercentPopulationVaccinated
 ```
 <image src="/resources/15.jpg"/>
 
+The "View" of top 1000 rows:
 
+<image src="/resources/View_top_1000.jpg"/>
 
 
 
