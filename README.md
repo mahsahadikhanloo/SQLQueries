@@ -14,13 +14,13 @@ order by 3,4
 
 <image src="/resources/1.jpg"/>
 
-
 Select the data that we are going to be using, again sort by Location and Date:
 
 ```sql
 select location, date, total_cases, new_cases, total_deaths, population
 from CovidDatabase..CovidDeaths order by 1,2
 ```
+<image src="/resources/2.jpg"/>
 
 Looking at the Total Cases vs Total Deaths and shows the likelihood of dying if you contract Covid in your country:
 
@@ -30,6 +30,9 @@ from CovidDatabase..CovidDeaths
 where location like '%states%'
 order by 1,2
 ```
+
+<image src="/resources/3.jpg"/>
+
 
 Looking at the Total Cases vs Population and shows what percentage of population got Covid:
 
