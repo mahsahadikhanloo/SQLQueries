@@ -33,7 +33,6 @@ order by 1,2
 
 <image src="/resources/3.jpg"/>
 
-
 Looking at the Total Cases vs Population and shows what percentage of population got Covid:
 
 ```sql
@@ -42,6 +41,7 @@ from CovidDatabase..CovidDeaths
 ---where location like '%states%'
 order by 1,2
 ```
+<image src="/resources/4.jpg"/>
 
 Looking at countries with Highest Infection Rate compared to Population:
 
@@ -53,6 +53,7 @@ from CovidDatabase..CovidDeaths
 Group by Location, Population
 order by InfectedPercantage desc
 ```
+<image src="/resources/5.jpg"/>
 
 Showing the Countries with Highest Death Count per Population:
 
@@ -64,6 +65,9 @@ where continent is not null
 Group by Location
 order by TotalDeath_Count desc
 ```
+
+<image src="/resources/6.jpg"/>
+
 
 Let's break this down by continent:
 
