@@ -119,11 +119,14 @@ where continent is not null
 order by 1,2
 ```
 
+<image src="/resources/10.jpg"/>
+
 Let's load the second table, CovidVaccination:
 
 ```sql
 select * from CovidDatabase..CovidVaccination 
 ```
+<image src="/resources/11.jpg"/>
 
 Join the two tables:
 
@@ -134,6 +137,8 @@ Join CovidDatabase..CovidVaccination vac
 	on dea.location = vac.location
 	and dea.date = vac.date
 ```
+
+<image src="/resources/12.jpg"/>
 
 Looking at Total Population vs Vaccination, and using CTE:
 
@@ -155,6 +160,8 @@ where dea.continent is not null
 select * , (RollingPeople_Vaccinated / population)*100
 from PopvsVac
 ```
+
+<image src="/resources/13.jpg"/>
 
 Building the TEMP TABLE:
 
@@ -186,6 +193,8 @@ select * , (RollingPeople_Vaccinated / population)*100
 from #PercentPopulationVaccinated
 ```
 
+<image src="/resources/14.jpg"/>
+
 Creating View to store data for later visualizations:
 
 ```sql
@@ -202,7 +211,7 @@ where dea.continent is not null
 
 select * from PercentPopulationVaccinated
 ```
-
+<image src="/resources/15.jpg"/>
 
 
 
