@@ -12,8 +12,7 @@ where continent is not null
 order by 3,4
 ```
 
-<image src="/SQLQueries/resources/1.jpg"/>
-
+<image src="/SQLQUERIES/resources/1.jpg"/>
 
 Select the data that we are going to be using, again sort by Location and Date:
 
