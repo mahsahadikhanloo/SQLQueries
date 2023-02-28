@@ -68,7 +68,6 @@ order by TotalDeath_Count desc
 
 <image src="/resources/6.jpg"/>
 
-
 Let's break this down by continent:
 
 ```sql
@@ -79,6 +78,8 @@ where continent is null
 Group by location
 order by TotalDeath_Count desc
 ```
+
+<image src="/resources/7.jpg"/>
 
 Showing the continent with the Highest Death Count:
 
@@ -91,6 +92,8 @@ Group by continent
 order by TotalDeath_Count desc
 ```
 
+<image src="/resources/8.jpg"/>
+
 Showing the Global Numbers, the Total Cases, Total Deaths and the Death Percentage group by Date:
 
 ```sql
@@ -102,6 +105,8 @@ where continent is not null
 Group by date
 order by 1,2
 ```
+
+<image src="/resources/9.jpg"/>
 
 Total Cases across the World (same as above query without Group By):
 
